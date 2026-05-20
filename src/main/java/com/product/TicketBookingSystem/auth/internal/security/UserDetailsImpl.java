@@ -1,0 +1,38 @@
+package com.product.TicketBookingSystem.auth.internal.security;
+
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.product.TicketBookingSystem.auth.internal.model.entity.AuthUser;
+
+public class UserDetailsImpl implements UserDetails {
+
+    private final AuthUser user;
+
+    public UserDetailsImpl(AuthUser user) {
+        this.user = user;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole().name()));
+    }
+
+    @Override
+    public String getPassword() {
+        return user.getPassword();
+    }
+
+    @Override
+    public String getUsername() {
+        return user.getEmail();
+    }
+
+    public AuthUser getUser() {
+        return user;
+    }
+}
