@@ -12,6 +12,8 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name = "auth_users")
 public class AuthUser {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
