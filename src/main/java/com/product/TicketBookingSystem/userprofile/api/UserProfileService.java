@@ -1,13 +1,14 @@
 package com.product.TicketBookingSystem.userprofile.api;
 
-import com.product.TicketBookingSystem.userprofile.internal.dto.*;
-
 import java.util.UUID;
 
+import com.product.TicketBookingSystem.userprofile.internal.dto.*;
+
 public interface UserProfileService {
-    UserProfileResponse updateUserProfile(UpdateUserProfileRequest updateRequest);
+    UserProfileResponse createProfile(UserProfileRequest userProfileRequest);
+
+    UserProfileResponse updateUserProfile(UpdateUserProfileRequest updateRequest, UUID authUserId);
 
     UserProfileResponse getUserProfile();
 
-    void createProfile(UUID authUserId);
 }
