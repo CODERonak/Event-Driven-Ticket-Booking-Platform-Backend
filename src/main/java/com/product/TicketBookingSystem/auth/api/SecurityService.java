@@ -1,4 +1,4 @@
-package com.product.TicketBookingSystem.auth.api.interfaces;
+package com.product.TicketBookingSystem.auth.api;
 
 import java.util.UUID;
 

@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.product.TicketBookingSystem.auth.api.interfaces.AuthUserService;
+import com.product.TicketBookingSystem.auth.api.AuthUserService;
 import com.product.TicketBookingSystem.auth.internal.dto.*;
 
 import io.swagger.v3.oas.annotations.Operation;

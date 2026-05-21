@@ -7,8 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.product.TicketBookingSystem.common.ErrorResponse;
-import com.product.TicketBookingSystem.common.exceptions.custom.*;
+import com.product.TicketBookingSystem.common.api.*;
 
 import jakarta.servlet.http.HttpServletRequest;
 

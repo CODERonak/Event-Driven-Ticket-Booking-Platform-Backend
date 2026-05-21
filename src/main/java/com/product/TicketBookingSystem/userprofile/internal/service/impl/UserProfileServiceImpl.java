@@ -5,8 +5,8 @@ import java.util.UUID;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import com.product.TicketBookingSystem.auth.api.interfaces.SecurityService;
-import com.product.TicketBookingSystem.common.exceptions.custom.UserNotFoundException;
+import com.product.TicketBookingSystem.auth.api.SecurityService;
+import com.product.TicketBookingSystem.common.api.UserNotFoundException;
 import com.product.TicketBookingSystem.userprofile.api.UserProfileService;
 
 import lombok.RequiredArgsConstructor;
@@ -30,7 +30,7 @@ public class UserProfileServiceImpl implements UserProfileService {
         UUID authUserId = securityService.getCurrentUser();
 
         if (userProfileRepository.existsByAuthUserId(authUserId)) {
-            throw new UserNotFoundException("Profile already exists for this user");
+            throw new com.product.TicketBookingSystem.common.api.UserNotFoundException("Profile already exists for this user");
         }
 
         var userProfile = userProfileMapper.toEntity(userProfileRequest);

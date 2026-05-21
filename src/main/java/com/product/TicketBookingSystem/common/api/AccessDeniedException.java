@@ -1,4 +1,4 @@
-package com.product.TicketBookingSystem.common.exceptions.custom;
+package com.product.TicketBookingSystem.common.api;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

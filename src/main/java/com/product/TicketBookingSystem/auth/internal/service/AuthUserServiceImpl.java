@@ -1,6 +1,6 @@
 package com.product.TicketBookingSystem.auth.internal.service;
 
-import com.product.TicketBookingSystem.auth.api.interfaces.AuthUserService;
+import com.product.TicketBookingSystem.auth.api.AuthUserService;
 import com.product.TicketBookingSystem.auth.internal.dto.*;
 import com.product.TicketBookingSystem.auth.internal.exception.custom.InvalidCredentialsException;
 import com.product.TicketBookingSystem.auth.internal.exception.custom.UserAlreadyExistsException;
@@ -8,13 +8,14 @@ import com.product.TicketBookingSystem.auth.internal.mapper.AuthUserMapper;
 import com.product.TicketBookingSystem.auth.internal.model.enums.Role;
 import com.product.TicketBookingSystem.auth.internal.repository.AuthUserRepository;
 import com.product.TicketBookingSystem.auth.internal.security.jwt.JWTUtil;
-import com.product.TicketBookingSystem.common.exceptions.custom.UserNotFoundException;
+
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -55,7 +56,7 @@ public class AuthUserServiceImpl implements AuthUserService {
             String jwtToken = jwtUtil.generateToken(loginRequest.email());
 
             var user = authUserRepository.findByEmail(loginRequest.email())
-                    .orElseThrow(() -> new UserNotFoundException("user not found"));
+                    .orElseThrow(() -> new UsernameNotFoundException("user not found"));
 
             return new LoginResponse(user.getEmail(), jwtToken);
 

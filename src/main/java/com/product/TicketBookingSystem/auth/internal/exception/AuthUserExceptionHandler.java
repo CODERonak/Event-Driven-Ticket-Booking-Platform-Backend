@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.product.TicketBookingSystem.auth.internal.exception.custom.InvalidCredentialsException;
 import com.product.TicketBookingSystem.auth.internal.exception.custom.UserAlreadyExistsException;
-import com.product.TicketBookingSystem.common.ErrorResponse;
+import com.product.TicketBookingSystem.common.api.ErrorResponse;
 
 import jakarta.servlet.http.HttpServletRequest;
 

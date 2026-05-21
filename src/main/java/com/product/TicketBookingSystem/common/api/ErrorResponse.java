@@ -1,4 +1,4 @@
-package com.product.TicketBookingSystem.common;
+package com.product.TicketBookingSystem.common.api;
 
 import java.time.Instant;
 

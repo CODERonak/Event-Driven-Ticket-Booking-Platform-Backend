@@ -6,10 +6,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import com.product.TicketBookingSystem.auth.api.interfaces.SecurityService;
+import com.product.TicketBookingSystem.auth.api.SecurityService;
 import com.product.TicketBookingSystem.auth.internal.security.UserDetailsImpl;
-import com.product.TicketBookingSystem.common.exceptions.custom.AccessDeniedException;
-import com.product.TicketBookingSystem.common.exceptions.custom.UserNotFoundException;
+import com.product.TicketBookingSystem.common.api.AccessDeniedException;
+import com.product.TicketBookingSystem.common.api.UserNotFoundException;
 
 /**
  * Implementation of SecurityService.
