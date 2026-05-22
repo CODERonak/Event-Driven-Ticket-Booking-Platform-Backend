@@ -28,7 +28,6 @@ public interface EventMapper {
      * The Event entity.
      */
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "metadata", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
     @Mapping(target = "availableSeats", source = "totalSeats")

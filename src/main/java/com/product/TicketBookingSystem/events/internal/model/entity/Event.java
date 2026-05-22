@@ -35,9 +35,6 @@ public class Event {
     @Column(nullable = false)
     private Integer availableSeats;
 
-    @Column(columnDefinition = "jsonb")
-    private String metadata;
-
     @Column(nullable = false, updatable = false)
     private Instant createdAt;
 
