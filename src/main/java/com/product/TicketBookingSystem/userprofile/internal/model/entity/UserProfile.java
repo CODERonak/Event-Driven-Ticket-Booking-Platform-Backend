@@ -11,7 +11,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user_profiles")
+@Table(name = "user_profiles", indexes = {
+        @Index(name = "idx_auth_user_id", columnList = "auth_user_id", unique = true)
+})
 public class UserProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -40,7 +42,7 @@ public class UserProfile {
         this.createdAt = Instant.now();
         this.updatedAt = Instant.now();
     }
-    
+
     @PreUpdate
     public void preUpdate() {
         this.updatedAt = Instant.now();

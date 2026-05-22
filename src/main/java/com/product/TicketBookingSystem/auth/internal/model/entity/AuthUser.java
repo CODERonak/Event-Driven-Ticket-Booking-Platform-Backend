@@ -13,7 +13,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "auth_users")
+@Table(name = "auth_users", indexes = {
+        @Index(name = "idx_email", columnList = "email", unique = true)
+})
 public class AuthUser {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

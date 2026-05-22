@@ -13,7 +13,10 @@ import com.product.TicketBookingSystem.events.internal.model.enums.SeatStatus;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "seats")
+@Table(name = "seats", indexes = {
+        @Index(name = "idx_event_seat_number", columnList = "event_id,seat_number", unique = true),
+        @Index(name = "idx_seat_status", columnList = "status")
+})
 public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
