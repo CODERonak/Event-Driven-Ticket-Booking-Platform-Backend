@@ -5,17 +5,14 @@ spring:
   application:
     name: Ticket-Booking-System
 
-  # Using local db for development purposes
   datasource:
-    url: jdbc:postgresql://localhost:5432/tbs
-    username: "myuser"
-    password: "secret"
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
       ddl-auto: update
-
     show-sql: true
     properties:
       hibernate:
@@ -26,14 +23,20 @@ spring:
       name: boot
       password: spring
 
-# Default Admin User Configuration
-# These credentials are used to create the initial admin account on startup.
+  cloud:
+    gcp:
+      sql:
+        enabled: true
+        database-name: ${DB_NAME}
+        instance-connection-name: ${INSTANCE_CONNECTION_NAME}
+      project-id: ${GCP_PROJECT_ID}
+      credentials:
+        location: classpath:gcp/gcp-key.json
+
 admin:
   email: ${ADMIN_EMAIL}
   password: ${ADMIN_PASS}
 
-
-# JWT Configuration
 jwt:
   secret: ${JWT_SECRET}
   expiration: ${JWT_EXPIRATION}
