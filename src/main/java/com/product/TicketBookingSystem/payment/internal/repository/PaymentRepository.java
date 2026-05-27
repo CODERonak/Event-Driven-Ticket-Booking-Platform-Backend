@@ -1,4 +1,4 @@
-package com.product.TicketBookingSystem.notification.internal.repository;
+package com.product.TicketBookingSystem.payment.internal.repository;
 
 import java.time.Instant;
 import java.util.List;
@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.product.TicketBookingSystem.notification.internal.model.entity.Payment;
-import com.product.TicketBookingSystem.notification.internal.model.enums.PaymentStatus;
+import com.product.TicketBookingSystem.payment.internal.model.entity.Payment;
+import com.product.TicketBookingSystem.payment.internal.model.enums.PaymentStatus;
 
 public interface PaymentRepository extends JpaRepository<Payment, UUID> {
     Optional<Payment> findByBookingId(UUID bookingId);

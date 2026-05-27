@@ -1,10 +1,10 @@
-package com.product.TicketBookingSystem.notification.internal.model.entity;
+package com.product.TicketBookingSystem.payment.internal.model.entity;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.UUID;
 
-import com.product.TicketBookingSystem.notification.internal.model.enums.PaymentStatus;
+import com.product.TicketBookingSystem.payment.internal.model.enums.PaymentStatus;
 
 import jakarta.persistence.*;
 import lombok.*;
