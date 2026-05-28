@@ -7,6 +7,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
 
+import com.product.TicketBookingSystem.booking.internal.dto.BookingResponse;
 import com.product.TicketBookingSystem.booking.internal.dto.CreateBookingRequest;
 import com.product.TicketBookingSystem.booking.internal.model.entity.Booking;
 import com.product.TicketBookingSystem.booking.internal.model.entity.BookingSeat;
@@ -29,6 +30,15 @@ public interface BookingMapper {
     @Mapping(target = "seats", source = "seatNumbers", qualifiedByName = "toBookingSeats")
     @Mapping(target = "seatCount", expression = "java(request.getSeatNumbers().size())")
     Booking toEntity(CreateBookingRequest request);
+
+    /**
+     * Maps the Booking entity to the Response DTO.
+     */
+
+    @Mapping(target = "status", expression = "java(booking.getStatus().name())")
+    @Mapping(target = "seatNumbers", expression = "java(booking.getSeats().stream().map(s -> s.getSeatNumber()).collect(java.util.stream.Collectors.toList()))")
+    @Mapping(target = "createdAt", expression = "java(booking.getCreatedAt().toString())")
+    BookingResponse toResponse(Booking booking);
 
     /**
      * Helper to convert list of seat strings into BookingSeat entities.
