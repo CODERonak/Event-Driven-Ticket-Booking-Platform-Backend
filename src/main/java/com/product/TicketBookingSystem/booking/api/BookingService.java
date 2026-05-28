@@ -4,19 +4,16 @@ import java.util.List;
 import java.util.UUID;
 
 import com.product.TicketBookingSystem.booking.internal.dto.BookingResponse;
-import com.product.TicketBookingSystem.booking.internal.dto.BookingStatusResponse;
 import com.product.TicketBookingSystem.booking.internal.dto.CreateBookingRequest;
 
 public interface BookingService {
-    BookingResponse createBooking(UUID userId, CreateBookingRequest request);
+   BookingResponse createBooking(CreateBookingRequest request);
 
-    BookingResponse getBooking(UUID bookingId);
+   BookingResponse getBooking(UUID bookingId);
 
-    List<BookingResponse> getUserBookings(UUID userId);
+   List<BookingResponse> getUserBookings();
 
-    BookingStatusResponse getBookingStatus(UUID bookingId);
+   void cancelBooking(UUID bookingId);
 
-    void cancelBooking(UUID bookingId);
-
-    void confirmBooking(UUID bookingId);
+   void confirmBooking(UUID bookingId);
 }
