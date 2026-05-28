@@ -1,6 +1,6 @@
 # Event-Driven Ticket Booking Platform
 
-A ticket booking platform using an Event-Driven, Modular Monolith architecture. It handles event management, seat reservations, payments, and notifications.
+A ticket booking platform using an Event-Driven, Modular Monolith architecture. It handles event management, seat bookings.
 
 ## Core Principles
 
@@ -11,19 +11,15 @@ A ticket booking platform using an Event-Driven, Modular Monolith architecture. 
 ## High-Level Modules
 
 *   `auth`: Authentication & Authorization
+*   `common`: core
 *   `users`: User Profiles
 *   `events`: Event & Seat Management
 *   `booking`: Core Seat Reservation Logic
-*   `payment`: Transaction Processing
-*   `notification`: Email/SMS Alerts
-*   `ticket`: PDF Ticket Generation & Storage
-*   `cache`: Redis-based Caching
 
 ## Technology Stack
 
 *   **Backend:** Spring Boot
 *   **Database:** PostgreSQL (Cloud SQL)
-*   **Cache:** Redis
 *   **Storage:** Google Cloud Storage (GCS)
 *   **Hosting:** GKE / Cloud Run
 
@@ -31,8 +27,42 @@ A ticket booking platform using an Event-Driven, Modular Monolith architecture. 
 
 The application is containerized using Docker and deployed to a cloud environment, connecting to managed database, cache, and storage services.
 
-## Evolution Roadmap
 
-1.  **Modular Monolith (Current):** Start with a single, well-structured application.
-2.  **Introduce Caching/Locking:** Integrate Redis for performance and concurrency.
-3.  **Externalize Events:** Migrate from internal Spring Events to a message broker like Kafka.
+## API Authentication
+
+This API uses JWT (JSON Web Tokens) for authentication. After a successful login, you will receive a JWT token. This token must be included in the `Authorization` header of your requests as `Bearer {token}` for all protected endpoints.
+
+### Endpoints Requiring JWT Authentication:
+
+**User Profile Controller (`/user-profile`)**
+
+*   `POST /user-profile/create`: Creates a new user profile.
+*   `PUT /user-profile/update`: Updates an existing user profile.
+*   `GET /user-profile/my-profile`: Retrieves the profile of the currently logged-in user.
+
+**Events Controller (`/events`)**
+
+*   `POST /events/create`: Creates a new event. (Requires **admin** role).
+
+**Booking Controller (`/bookings`)**
+
+*   `POST /bookings`: Creates a new booking.
+*   `GET /bookings/{bookingId}`: Retrieves a specific booking by its ID.
+*   `GET /bookings`: Retrieves all bookings for the current user.
+*   `POST /bookings/{bookingId}/confirm`: Confirms a booking.
+*   `POST /bookings/{bookingId}/cancel`: Cancels a booking.
+
+### Publicly Accessible Endpoints (No JWT Required):
+
+The following endpoints are public and do not require authentication:
+
+**Authentication Controller (`/auth`)**
+
+*   `POST /auth/register`
+*   `POST /auth/login`
+
+**Events Controller (`/events`)**
+
+*   `GET /events`
+*   `GET /events/{eventId}`
+*   `GET /events/{eventId}/available-seats`
