@@ -1,5 +1,6 @@
 package com.product.TicketBookingSystem.events.internal.model.entity;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.UUID;
 
@@ -22,8 +23,11 @@ public class Event {
     @Column(nullable = false, length = 255)
     private String title;
 
-    @Column(nullable = false, length = 500)
+    @Column(nullable = false)
     private String description;
+
+    @Column(nullable = false)
+    private BigDecimal price;
 
     @Column(nullable = false, length = 255)
     private String location;
