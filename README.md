@@ -2,6 +2,14 @@
 
 A ticket booking platform using an Event-Driven, Modular Monolith architecture. It handles event management, seat bookings.
 
+## Live Demo & Testing
+
+The application is deployed to a **Google Kubernetes Engine (GKE)** cluster.
+
+You can access the Swagger UI for live testing and API documentation at the following IP address, which is running in the Kubernetes cluster:
+
+**Swagger UI:** [http://34.9.189.202/swagger-ui/index.html#/](http://34.9.189.202/swagger-ui/index.html#/)
+
 ## Core Principles
 
 *   **Modular Monolith:** A single deployable unit with strict internal boundaries between business domains (modules).
@@ -26,7 +34,6 @@ A ticket booking platform using an Event-Driven, Modular Monolith architecture. 
 ## Deployment
 
 The application is containerized using Docker and deployed to a cloud environment, connecting to managed database, cache, and storage services.
-
 
 ## API Authentication
 

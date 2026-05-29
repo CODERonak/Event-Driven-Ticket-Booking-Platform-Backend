@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: Ticket-Booking-System
+    name: Booking-System
 
   datasource:
     username: ${DB_USERNAME}

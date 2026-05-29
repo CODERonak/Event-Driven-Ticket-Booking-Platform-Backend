@@ -7,6 +7,10 @@
     pkgs.google-cloud-sdk
     pkgs.docker
     pkgs.postgresql_18
+    pkgs.kubernetes
+    (pkgs.google-cloud-sdk.withExtraComponents (with pkgs.google-cloud-sdk.components; [
+      gke-gcloud-auth-plugin
+    ]))
   ];
 
   services.postgres = {
