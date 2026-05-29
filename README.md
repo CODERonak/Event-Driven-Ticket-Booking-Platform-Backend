@@ -8,7 +8,15 @@ The application is deployed to a **Google Kubernetes Engine (GKE)** cluster.
 
 You can access the Swagger UI for live testing and API documentation at the following IP address, which is running in the Kubernetes cluster:
 
-**Swagger UI:** [http://34.9.189.202/swagger-ui/index.html#/](http://34.9.189.202/swagger-ui/index.html#/)
+## 🚀 Interactive API Documentation
+You can explore the live API documentation, view endpoint schemas, and test calls directly in your browser using **Swagger UI**.
+
+* **[Access Swagger UI](http://34.9.189.202/swagger-ui/index.html#/)**
+
+## 🧪 Postman Collection
+For faster development and testing, you can use the pre-configured Postman collection.
+
+* **[Open in Postman](https://web.postman.co/94e3471c-49d0-449b-ad50-ee8bfdd8c9ff)**
 
 ## Core Principles
 
